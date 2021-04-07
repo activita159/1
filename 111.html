@@ -42,34 +42,33 @@
 </head>
 <body>
     <div class="boxes">
-        <!-- <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div> -->
+        
+        
     </div>
 
 
     <script>
-        var boxQty = 4;
-        var randomAnswer = Math.floor(Math.random()*boxQty);
-        var boxes = document.querySelector('.boxes');
-        boxes.innerHTML="";
-        for(var i = 0 ; i < boxQty ; i++)
+        function game() 
         {
-            if(i == randomAnswer){
-                boxes.innerHTML += '<div class="box answer-box"></div>';     
-            }
-            else
+            var boxes = document.querySelector('.boxes');
+            boxes.innerHTML = '';
+            for(var i = 0 ; i < 4 ; i++)
             {
-                boxes.innerHTML += '<div class="box"></div>';
+            boxes.innerHTML += '<div class="box"></div>';
             }
+            var boxOpacity = Math.floor(Math.random() * 4 )+1;
+            var answerBox = document.querySelector(`.boxes .box:nth-child(${boxOpacity})`);
+            answerBox.classList.add('answer-box');
+            var answerBtn = document.querySelector('.answer-box');
+            answerBtn.addEventListener('click', function () 
+            {
+                game();    
+            }) 
         }
-
-        var answerBox = document.querySelector('.answer-box');
-        answerBox.addEventListener('click',function () 
-        {
-            window.alert('ya');    
-        })
+        game();
+        
     </script>
+    
+    
 </body>
 </html>

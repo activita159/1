@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>開始</button>
+    <div class="count"></div>
+    
+    
+
+    <script>
+        var count = document.querySelector('.count');
+        var btn = document.querySelector('button');
+        btn.addEventListener("click", function () 
+        {               
+            var countt = 0;
+            while(true)
+            {   
+                var a = Math.floor(Math.random()*6)+1;
+                var b = Math.floor(Math.random()*6)+1;
+                var c = Math.floor(Math.random()*6)+1;                              
+                countt++;
+                count.innerHTML = "第"+countt+"次結果為:"+" "+a+" "+b+" "+c +"<br>" + count.innerHTML
+                if(a == b && a == c){
+                    break;                  
+                }           
+            }
+            
+        })
+    </script>
+</body>
+</html>
