@@ -10,11 +10,11 @@
             box-sizing: border-box;
         }
         body{
+            padding: 0;
+            margin: 0;
             min-height: 100vh;
             width: 100%;
             background-color: #F06060;
-            padding: 0;
-            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -43,28 +43,33 @@
 <body>
     <div class="boxes">
         
+        
     </div>
 
-    <script>
-        var boxQua = 4;
-        var opacityBox = Math.floor(Math.random() * 4);
-        var boxes = document.querySelector('.boxes');
-        for(i = 0 ; i < boxQua ; i++){
-            if(i == opacityBox)
-            {
-                boxes.innerHTML +=  '<div class="box answer-box"></div>';
-            }
-            else
-            {
-                boxes.innerHTML +=  '<div class="box"></div>';
-            }
-        }
 
-        var answerBox = document.querySelector('.answer-box');
-        answerBox.addEventListener("click", function () 
+    <script>
+        function game() 
         {
-            window.alert("good");    
-        })
+            var boxes = document.querySelector('.boxes');
+            boxes.innerHTML = '';
+            for(var i = 0 ; i < 4 ; i++)
+            {
+            boxes.innerHTML += '<div class="box"></div>';
+            }
+            var boxOpacity = Math.floor(Math.random() * 4 ) + 1;
+            var answerBox = document.querySelector(`.boxes .box:nth-child(${boxOpacity})`);
+            answerBox.classList.add('answer-box');
+            var answerBtn = document.querySelector('.answer-box');
+            answerBtn.addEventListener('click', function () 
+            {
+                game();
+            }) 
+        }
+        game();
+        
+        
     </script>
+    
+    
 </body>
 </html>
