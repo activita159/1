@@ -45,6 +45,7 @@
         </style>
     </head>
 <body>
+    <button id="start">start</button>
     <div class="boxes">
 
     </div>
@@ -71,7 +72,11 @@
                 go();            
             }) 
         }
-        go();
+        var start = document.querySelector('#start');
+        start.addEventListener('click',function () {
+            go();
+        })
+        
        
         
     </script>
