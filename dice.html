@@ -8,6 +8,7 @@
 </head>
 <body>
     <button>開始</button>
+    <button id = 'clear'>清除</button>
     <div class="count"></div>
     
     
@@ -15,6 +16,7 @@
     <script>
         var count = document.querySelector('.count');
         var btn = document.querySelector('button');
+        var clear = document.querySelector('#clear');
         btn.addEventListener("click", function () 
         {               
             var countt = 0;
@@ -30,6 +32,9 @@
                 }           
             }
             
+        })
+        clear.addEventListener('click',function () {
+            count.innerHTML= '';
         })
     </script>
 </body>
