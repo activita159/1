@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 200vh;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+        }
+        .box h1, .box p{
+            opacity: 0;
+            transition-duration: 1s;
+        }
+        
+        .box:hover h1,.box:hover p{
+            opacity: 1;
+        }
+        .box p{
+            transition-delay: 0.5s;
+        }
+
+        /* ------------- */
+        .container{
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            position: relative;
+        }
+        .container .line{
+            width: 100px;
+            height: 20px;
+            border: 1px solid black;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            transition-duration: 1s;
+        }
+        .container:hover .line:first-of-type{
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        .container:hover .line:last-of-type{
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        /* ----------- */
+
+        .containerB{
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            position: relative;
+        }
+        .containerB .line{
+            width: 100px;
+            height: 20px;
+            border: 1px solid black;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            transition-duration: 1s , 0.1s;
+            transition-property: top , transform;
+        }
+        .containerB .line:first-of-type{
+            top:25%
+        }
+        .containerB .line:last-of-type{
+            top:75%;
+        }
+        .containerB:focus .line{
+            transition-duration: 0.1s , 1s;
+            transition-property: top , transform;
+        }
+        .containerB:focus .line:nth-child(2){
+            opacity: 0;
+        }
+        .containerB:focus .line:first-of-type{
+            top:50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        .containerB:focus .line:last-of-type{
+            top:50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        /* ------------- */
+        .containerC{
+            margin-top: 30px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            position: relative;
+        }
+        .containerC .box{
+            width: 50px;
+            height: 50px;
+            background-color: hotpink;
+            position: absolute;
+            bottom:0;   
+            animation-name: go;
+            animation-direction: alternate-reverse;
+            animation-iteration-count: infinite;
+            animation-duration: 5s;        
+        }
+        .containerC .box:first-of-type{
+            bottom:100px;
+            animation-timing-function: ease-in;
+        }
+        .containerC .box:nth-child(2){
+            bottom:50px;
+            animation-timing-function:linear;
+        }
+
+        @keyframes go{
+            0%{
+                left:0px;
+            }
+
+            100%{
+                left:250px;
+            }
+        }
+
+        /* ---------- */
+        .containerD{
+            margin-top: 50px;
+            position: relative;
+        }
+        .containerD .boo{
+            width: 100px;
+            height: 25px;
+            position: absolute;
+            left: 3%;            
+        }
+        .containerD .boxbox{
+            border: 1px solid black;
+            position: absolute;
+            left: 20px;
+            animation-name: goyo;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function:ease-in-out;
+            animation-direction: alternate-reverse;
+            
+        }
+        @keyframes goyo{
+            0%{
+                top:0px;
+            }
+            
+            100%{
+                top:-80px
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>5566</h1>
+        <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat doloremque mollitia repellat excepturi provident expedita, sapiente beatae, ducimus adipisci incidunt nisi porro, quibusdam debitis assumenda molestiae vero quam et eum? </p>
+    </div>
+    <!-- ---------------- -->
+
+    <div class="container">
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <!-- ---------------- -->
+
+    <div class="containerB" tabindex="1">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <!-- ----------------------- -->
+    <div class="containerC">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <!-- ---------------------------->
+    <div class="containerD" style="display: flex;">
+        <p>56</p>
+        <div class="boo"></div>
+        <div class="boxbox">
+            <p>不能亡</p>
+            <p>不能亡</p>
+            <p>不能亡</p>
+        </div>
+    </div>
+</body>
+</html>
