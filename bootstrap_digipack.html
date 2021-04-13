@@ -45,34 +45,33 @@
     </style>
 </head>
 <body>
-  <div class="container" style="margin-top: 0;">
+  <div class="container" style="margin-top: 0; display: flex;flex-wrap: wrap;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+        <ul class="navbar-nav ml-auto" >
+          <li class="nav-item active" style="margin-right:20px;">
             <a class="nav-link " href="#">Blog <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item active" style="margin-right:20px;">
             <a class="nav-link" href="#">Potfoloio <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item active" style="margin-right:20px;">
             <a class="nav-link" href="#">About</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item active" style="margin-right:20px;">
             <a class="nav-link" href="#">Contact</a>
-          </li>
-          <li class="nav-item dropdown active">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+          </li>  
+          <li>
+            <img src="./img/shop.jpg" width="36px" height="30px" alt="" style="margin-right:20px;">
+          </li>    
+          <li>
+            <img src="./img/login.jpg" id="Link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="36px" height="34px" alt="">
+            <div class="dropdown-menu" aria-labelledby="Link" style="width: 100px;position: absolute;top:90%;left: 85%;">
+              <a class="dropdown-item" href="#" style="text-align: center;">Login</a>
             </div>
           </li>
         </ul>
@@ -312,10 +311,10 @@
   
   <div class="container">
     <div class="row">
-      <div class="col-3" style="padding:20px">
+      <div class="col-3" style="padding:20px;">
         <img src="./img/H1.jpg" width="150px" style="border-radius: 50%;" alt="">     
       </div>
-      <div class="col-9" style="padding:20px">        
+      <div class="col-9" style="padding:20px;">        
         <div class="row">
           <div class="col-12">
             <h4>Shooting Stars
@@ -352,7 +351,7 @@
       <div class="col-3" style="padding:20px;text-align:end;">
         <img src="./img/H1.jpg" width="150px" style="border-radius: 50%;" alt="" >
       </div>
-      <div class="col-3" style="padding:20px">
+      <div class="col-3" style="padding:20px;">
         <img src="./img/H1.jpg" width="150px" style="border-radius: 50%;" alt="">     
       </div>
       <div class="col-9" style="padding:20px">        
@@ -378,6 +377,43 @@
 
   <div class="container btn" style="margin-top: 50px;">
     <button>Button</button>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <img src="./img/506.jpg" width="100%" alt="">
+      </div>
+      <div class="col-lg-6">
+        BRAND NAME
+        <br><h3>The Catcher in the Rye</h3>
+        <h5>★★★★☆ 4 Reviews</h5>
+        <br>Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.
+
+        
+        <form action="/action_page.php">
+          <label for="cars"><br>Color
+            <button style="background-color: white;width: 24px;height: 24px;border-radius: 50%;border: 2px solid grey;">
+            </button> 
+            <button style="background-color: rgb(0, 0, 0);width: 24px;height: 24px;border-radius: 50%;border: 2px solid grey;">
+            </button>
+            <button style="background-color: rgb(64, 17, 235);width: 24px;height: 24px;border-radius: 50%;border: 2px solid grey;">
+            </button>
+              Size
+          </label>
+          <select name="size" id="size">
+            <option value="SM">SM</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </form>
+        <p><hr><h4 style="display: flex;">$58.00<button class="ml-auto">Button</button></p> 
+        
+        
+      </div>
+    </div>
+    
   </div>
 
   <div class="container">
@@ -438,115 +474,87 @@
 
 
 
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <img src="./img/506.jpg" width="100%" alt="">
-      </div>
-      <div class="col-6">
-        BRAND NAME
-        <br><h3>The Catcher in the Rye</h3>
-        <h5>★★★★☆ 4 Reviews</h5>
-        <br>Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.
+ 
 
-        
-        <form action="/action_page.php">
-          <label for="cars"><br>Color
-            <button style="background-color: white;width: 24px;height: 24px;border-radius: 50%;border: 2px solid grey;">
-            </button> 
-            <button style="background-color: rgb(0, 0, 0);width: 24px;height: 24px;border-radius: 50%;border: 2px solid grey;">
-            </button>
-            <button style="background-color: rgb(64, 17, 235);width: 24px;height: 24px;border-radius: 50%;border: 2px solid grey;">
-            </button>
-              Size
+  <div class="container-fluid mapppppp" style="position: relative;">
+    <div class="map" style="margin-top: 100px;">      
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d442130.5514755871!2d-90.16275326139586!3d30.032699596934652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a454b2118265%3A0xdb065be85e22d3b4!2z576O5ZyL6Lev5piT5pav5a6J6YKj5paw5aWn54i-6Imv!5e0!3m2!1szh-TW!2stw!4v1618191755578!5m2!1szh-TW!2stw" width="100%" height="700px" style="border:0;" allowfullscreen="" loading="lazy">      
+      </iframe>
+  
+      <form style="position: absolute;top:20%;right: 10%;background-color: rgb(255, 255, 255);padding: 20px;">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">
+            Feedback
+            <br>Post-ironic portland shabby chic echo park, banjo fashion axe</br>
+            <br>email</br>
           </label>
-          <select name="size" id="size">
-            <option value="SM">SM</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-          </select>
-        </form>
-        <p><hr><h4 style="display: flex;">$58.00<button class="ml-auto">Button</button></p> 
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Message</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
         
-        
-      </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Button</button>
+        <p style="font-size: 5px;">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+      </form>
     </div>
-    
-  </div>
-
-
-  <div class="map" style="margin-top: 100px;">
-    
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d442130.5514755871!2d-90.16275326139586!3d30.032699596934652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a454b2118265%3A0xdb065be85e22d3b4!2z576O5ZyL6Lev5piT5pav5a6J6YKj5paw5aWn54i-6Imv!5e0!3m2!1szh-TW!2stw!4v1618191755578!5m2!1szh-TW!2stw" width="100%" height="700px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
-    <form >
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-      </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
   </div>
 
 
 
 
-  <div class="container" style="margin-bottom: 100px;">
-    <div class="row">
-      <div class="col-lg-4">
+  <div class="container-fluid" style="padding:96px 20px;">
+    <div class="row" style="margin: auto;">
+      <div class="col-lg-4 col-md-6" style="text-align: center;">
         數位方塊<br>
         Air plant banjo lyft occupy retro adaptogen indego
       </div>
-      <div class="col-lg-2">
-        <p>CATEGORIES</p>
-        First Link
-        <br>Second Link
-        <br>Third Link
-        <br>Fourth Link
+      <div class="col-lg-8 col-md-6" style="text-align: center;">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <p>CATEGORIES</p>
+            First Link
+            <br>Second Link
+            <br>Third Link
+            <br>Fourth Link
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <p>CATEGORIES</p>
+            First Link
+            <br>Second Link
+            <br>Third Link
+            <br>Fourth Link
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <p>CATEGORIES</p>
+            First Link
+            <br>Second Link
+            <br>Third Link
+            <br>Fourth Link
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <p>CATEGORIES</p>
+            First Link
+            <br>Second Link
+            <br>Third Link
+            <br>Fourth Link
+          </div>
+        </div>
       </div>
-      <div class="col-lg-2">
-        <p>CATEGORIES</p>
-        First Link
-        <br>Second Link
-        <br>Third Link
-        <br>Fourth Link
-      </div>
-      <div class="col-lg-2">
-        <p>CATEGORIES</p>
-        First Link
-        <br>Second Link
-        <br>Third Link
-        <br>Fourth Link
-      </div>
-      <div class="col-lg-2">
-        <p>CATEGORIES</p>
-        First Link
-        <br>Second Link
-        <br>Third Link
-        <br>Fourth Link
-      </div>
+      
     </div>
   </div>
 
-  <footer style="width: 100%;height: 60px;background-color: #F3F4F6;">
-    <div class="container" style="width: 100%;height: 100%;background-color: #F3F4F6;display: flex;align-items: center;">
-      <div class="left">© 2020 Tailblocks — @knyttneve</div>
-      <div class="right" style="margin-left: auto;">
-        <img src="./img/f.jpg" alt="">
-        <img src="./img/t.jpg" alt="">
-        <img src="./img/Unknow.jpg" alt="">
-        <img src="./img/i.jpg" alt="">
-      </div>
+  <footer style="width: 100%;height: 60px;background-color: #F3F4F6;display: flex;justify-content: center;">
+    <div class="container-fluid" style="width: 80%;height: 100%;background-color: #F3F4F6;display: flex;justify-content: space-between;align-items: center;margin: 0;">
+        <div class="left">© 2020 Tailblocks — @knyttneve</div>
+        <div class="right" style="margin-left: auto;">
+            <img src="./img/f.jpg" alt="">
+            <img src="./img/t.jpg" alt="">
+            <img src="./img/Unknow.jpg" alt="">
+            <img src="./img/i.jpg" alt="">
+        </div>
     </div>
   </footer>
 

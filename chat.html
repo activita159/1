@@ -19,21 +19,21 @@
         .container{
             width: 100%;
             height: 80px;
-            background-color: tomato;
+            background-color: rgb(255, 192, 181);
             display:flex;
             align-items: center;
         }
         .avatar{
             width: 60px;
             height: 60px;
-            background-color: bisque;
+            background-color: rgb(253, 218, 174);
             border-radius: 50%;
         }
 
         .content{
             width: 100%;
             height: calc(100vh - 130px);
-            background-color: thistle;
+            background-color: rgb(111, 111, 111);
         }
         footer{
             width: 100%;
@@ -46,19 +46,46 @@
             background-color: wheat;
             display:flex;
             justify-content: space-around;
+            align-items: center;
         }
 
         input{
-            width: 80%;
-            height: 80%;
-            margin-top: 5px;
+            width: 50%;
+            height: 50%;
         }
         button{
             width: 50px;
-            height: 80%;
-            margin-top: 5px;
+            height: 50%;
         }
-        
+        .content .chat-L {  
+            margin-top: 10px;          
+            float: left;
+            width: 60%;
+            
+        }
+        .content .chat-R {
+            margin-top: 10px; 
+            float: right;
+            width: 60%;           
+        }
+        .img-L{
+            float:left;
+        }
+        .img-R{
+            float:right;
+        }
+        .chat-L-in{
+            
+            margin-left: 80px;
+            background-color: bisque;
+        }
+        .chat-R-in{
+            margin-right: 80px;
+            background-color: bisque;
+        }
+        .text-R{
+            text-align: end;
+        }
     </style>
 </head>
 <body>   
@@ -70,22 +97,29 @@
         </div>
     </div>       
     <div class="content">
-        <div class="chat">
-            <div class="img"></div>
-            <div class="chat-L">
-                <div class="text"></div>
-                <div class="time"></div>
+        <div class="chat-L">
+            <div class="img-L">
+                <img src="./img/H1-1.jpg" width="50px" height="50px" alt="">
             </div>
+            <div class="chat-L-in">
+                <div class="text-L">5566</div>
+                <div class="time-L"></div>
+            </div>
+        </div>
+        <div class="chat-R">           
+            <div class="img-R">
+                <img src="./img/H1-1.jpg" width="50px" height="50px" alt="">
+            </div>
+            <div class="chat-R-in">
+                <div class="text-R">66666666666666666666666666666666666666666666666666666</div>
+                <div class="time-R"></div>
+            </div>           
         </div>
     </div>
     <footer>
-        <div class="btm">
-            <input type="text">
+        <form action='' class="btm">
+            <input type="text" placeholder="56不能亡">
             <button id = 'enter'></button>
-        </div>
-        <form action=''>
-            <!-- <input type="text">
-            <button id = 'enter'></button> -->
         </form>
     </footer>
 </body>
