@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .bobo{
+           width: 300px;
+           height: 300px;
+           border: 1px solid black;
+       }
+       .bobo h1, .bobo p{
+           opacity: 0;
+           transition-duration: 1s;
+       }
+       .bobo p{
+           transition-delay: 0.5s;
+       }
+       .bobo:hover h1, .bobo:hover p{
+           opacity: 1;
+       }
+       /* ------------- */
+       .boxBB{
+           margin-top: 10px;
+           width: 150px;
+           height: 150px;
+           border: 1px solid black;           
+           position: relative;
+       }
+       .boxBB .line{
+           width: 100px;
+           height: 10px;
+           border: 1px solid black;
+           position: absolute;
+           left: 50%;
+           top: 50%;
+           transform: translate(-50%, -50%);
+           transition-duration: 1s;
+       }
+       .boxBB:hover .line:first-of-type{
+           transform: translate(-50%, -50%) rotate(45deg);
+       }
+       .boxBB:hover .line:last-of-type{
+           transform: translate(-50%, -50%) rotate(-45deg);
+       }
+       /* ------- */
+
+       .containerA{
+            margin-top: 10px;
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;           
+            position: relative;
+       }
+       .containerA .line{
+           width: 100px;
+           height: 10px;
+           border: 1px solid black;
+           position: absolute;
+           left: 50%;
+           top: 50%;
+           transform: translate(-50%, -50%);
+           transition-duration: 1s, 0.1s;
+           transition-property: top, transform;
+          
+       }
+       .containerA:focus .line{
+           transition-duration: 0.1s, 1s;
+           transition-property: top, transform;
+       }
+       .containerA .line:first-of-type{
+           top: 25%;
+       }
+       .containerA .line:last-of-type{
+           top: 75%;
+       }
+       .containerA:focus .line:first-of-type{
+           top: 50%;
+           transform: translate(-50%, -50%) rotate(45deg);
+       }
+       .containerA:focus .line:last-of-type{
+           top: 50%;
+           transform: translate(-50%, -50%) rotate(-45deg);
+       }
+       .containerA:focus .line:nth-child(2){
+           opacity: 0;
+       }
+       /* ----------- */
+       .containerB{
+           margin-top: 30px;
+           width: 300px;
+           height: 300px;
+           border: 1px solid black;
+           position: relative;
+       }
+       .containerB .box{
+           position: absolute;
+           width: 50px;
+           height: 50px;
+           border: 1px solid black;
+           background-color: burlywood;
+           bottom: 0px;
+           animation-name: go;
+           animation-duration: 3s;
+           animation-timing-function: ease;
+           animation-iteration-count: infinite;
+           animation-direction: alternate-reverse;
+           
+       }
+       .containerB .box:first-of-type{
+           bottom: 104px;
+           animation-timing-function:ease-in
+       }
+       .containerB .box:nth-child(2){
+           bottom: 52px;
+           animation-timing-function: ease-in-out;
+       }
+       @keyframes go{
+           0%{
+               left:0px;
+           }
+           100%{
+               left:248px;
+           }
+       }            
+
+
+    </style>
+</head>
+<body>
+    <div class="bobo">
+        <h1>5566</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati id architecto deleniti accusamus, quis dolores odio deserunt doloribus eius itaque eos voluptatum error aspernatur ipsa expedita labore illo provident nobis. </p>
+    </div>
+
+    <!-- -------------- -->
+    <div class="boxBB">
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <!-- -------------------->
+
+    <div class="containerA" tabindex="1">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <!-- ---------------- -->
+    <div class="containerB">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>
