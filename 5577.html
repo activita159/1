@@ -51,9 +51,9 @@
              
 
             var dataTable = document.querySelector('.data-table');
-            dataTable.innerHTML += `<tr><td>${nameData}</td><td>${ageData}</td><td>${genderData}</td><td><button id="delete">刪除</button></td></tr>`;
+            dataTable.innerHTML += `<tr><td>${nameData}</td><td>${ageData}</td><td>${genderData}</td><td><button id="delete${arr.length-1}">刪除</button></td></tr>`;
 
-
+            console.log(arr.length-1);
             // var thead = document.querySelectorAll('thead');
             // thead.forEach(function (item) {
             //     arr.push(item)
