@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table , tr , td , th{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        name<input type="text" id="name"><br>
+        age<input type="text" id="age"><br>
+        gender<input type="text" id="gender"><br>
+        <button id="subBtn">submit</button>
+        <button id="searchBtn">search</button>
+    </div>
+    <table id="table-box">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>age</th>
+                <th>gender</th>
+                <th>action</th>
+            </tr>
+            
+        </thead>
+    </table>
+
+
+    <script>
+        var nameData = document.querySelector("#name");
+        var ageData = document.querySelector("#age");
+        var genderData = document.querySelector("#gender");
+        var subBtn = document.querySelector("#subBtn");
+        var searchBtn = document.querySelector("#searchBtn");
+        var table = document.querySelector("#table-box");
+        var arr = [];
+
+        subBtn.addEventListener("click", function () {
+            table.innerHTML += 
+            `<tr>
+                <td>${nameData.value}</td>
+                <td>${ageData.value}</td>
+                <td>${genderData.value}</td>
+                <td><button id="delete${arr.length-1}">delete</button></td>
+            </tr>`
+            arr.push({"name":nameData.value, "age":ageData.value, "gender":genderData.value});
+            console.log(arr.length-1);
+        })
+        searchBtn.addEventListener("click",function () {
+            console.log(arr);
+        })
+
+        
+
+    </script>
+</body>
+</html>
