@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+
+    </section>
+
+    <script>
+        fetch('https://datacenter.taichung.gov.tw/swagger/OpenData/1c5e97c9-8232-419b-8109-e3b0ed585676')
+        .then(function (response) {
+            return response.text()
+        })
+        .then(function (result) {
+            var data = JSON.parse(result);
+            console.log(data);
+
+            // var resultArr = result.split();
+            // console.log(resultArr);
+            var section = document.querySelector('section');
+            section.innerHTML = "";
+            data.forEach(function () {
+                section.innerHTML += `<div>${item["區別"]}</div>`
+            } 
+                
+            );
+        });
+        
+        
+    </script>
+</body>
+</html>
