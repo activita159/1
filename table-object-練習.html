@@ -49,12 +49,14 @@
         var submitBtn =  document.querySelector("#submit");
         var arr =[];
         var tbody = document.querySelector("tbody");
-        // var deleteBtns = document.querySelectorAll(".delete");
         var searchBtn = document.querySelector('#search');
 
 
         submitBtn.addEventListener("click",function () {
             arr.push({"name":nameData.value, "age":ageData.value, "gender":genderData.value}); 
+            gogo();
+        })
+        function gogo() {               
             tbody.innerHTML= '';
             arr.forEach(function (data,index) {  
                 tbody.innerHTML += 
@@ -72,19 +74,23 @@
                         <button class="delete" data-index='${index}'>delete</button>
                     </td>
                 </tr>`;
-                var deleteBtns = document.querySelectorAll(".delete");
-                deleteBtns.forEach(function(deleteBtn){
-                    
-                    deleteBtn.addEventListener('click',function () {
-
-                        var index = this.getAttribute("data-index");
-                        arr.splice(index,1);
-                        
-                    })
-                })
+                go();
             })          
-        })
-        
+        }
+
+
+        function go(){
+            var deleteBtns = document.querySelectorAll(".delete");  
+            deleteBtns.forEach(function(deleteBtn){
+                
+                deleteBtn.addEventListener('click',function () {
+    
+                    var index = this.getAttribute("data-index");
+                    arr.splice(index,1);
+                    gogo();
+                })
+            })
+        }
 
        
         searchBtn.addEventListener('click',function () {
