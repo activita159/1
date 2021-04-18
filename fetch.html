@@ -12,23 +12,23 @@
     </section>
 
     <script>
+        //發送請求 request
         fetch('https://datacenter.taichung.gov.tw/swagger/OpenData/1c5e97c9-8232-419b-8109-e3b0ed585676')
+        // 回傳請求 response
         .then(function (response) {
-            return response.text()
+            
+            return response.text();            
         })
+        //使用得到的資料
         .then(function (result) {
+            //讀資料
+            
             var data = JSON.parse(result);
-            console.log(data);
-
-            // var resultArr = result.split();
-            // console.log(resultArr);
             var section = document.querySelector('section');
-            section.innerHTML = "";
-            // data.forEach(function () {
-            //     section.innerHTML += `<div>${item["區別"]}</div>`
-            // } 
-                
-            // );
+            section.innerHTML = '';
+            data.forEach(function (item) {
+                section.innerHTML += `<div>${item["項目"]}</div>`; 
+            });
         });
         
         

@@ -48,7 +48,6 @@
        
 
         subBtn.addEventListener("click", function () {
-            console.log(nameData);
             arr.push({"name":nameData.value, "age":ageData.value, "gender":genderData.value});            
             gogo();           
         })
@@ -69,6 +68,7 @@
         function go() {
             var deleteBtns = document.querySelectorAll('.delete');
             deleteBtns.forEach(function (deleteBtn) {
+                console.log(deleteBtn);
                 deleteBtn.addEventListener("click",function () {                    
                     var index = this.getAttribute("data-index");
                     arr.splice(index,1);

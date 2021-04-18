@@ -13,9 +13,11 @@
 </head>
 <body>
     <div>
-        name <input type="text"> </br>
-        age <input type="text"> </br>
-        gender <input type="text"> </br>
+        name <input type="text" class="name"> </br>
+        age <input type="text" class="age"> </br>
+        gender <input type="text" class="gender"> </br>
+        <button class="submit">submit</button>
+        <button class="search">search</button>
     </div>
     <table>
         <thead>
@@ -23,6 +25,7 @@
                 <th>name</th>
                 <th>age</th>
                 <th>gender</th>
+                <th>action</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +34,48 @@
     </table>
 
 
-    <script></script>
+    <script>
+        var nameData = document.querySelector('.name');
+        var ageData = document.querySelector('.age');
+        var genderData = document.querySelector('.gender');
+        var submitBtn = document.querySelector('.submit');
+        var searchBtn = document.querySelector('.search');
+        var tbody = document.querySelector('tbody');
+        // var deleteBtns = document.querySelectorAll('.delete');
+        var arr =[];
+        submitBtn.addEventListener('click',function () {
+            arr.push({'name':nameData.value,'age':ageData.value,'gender':genderData.value});
+            go();
+        })
+        function go() {               
+            tbody.innerHTML = '';
+            arr.forEach(function (value,index) {
+                tbody.innerHTML += 
+                    `<tr>
+                        <td>${value["name"]}</td>
+                        <td>${value["age"]}</td>
+                        <td>${value["gender"]}</td>
+                        <td><button class="delete" delete-index="${index}">delete</button></td>                       
+                    </tr>`;
+                gogo();
+            })
+        }
+        function gogo() {
+            var deleteBtns = document.querySelectorAll('.delete');
+            deleteBtns.forEach(function (deleteB) {
+                console.log(deleteB);//  ????????????????????????
+                deleteB.addEventListener('click',function () {
+                    var index = this.getAttribute('delete-index');
+                    arr.splice(index,1);
+                    go();
+                })
+            })            
+        }
+
+        searchBtn.addEventListener('click',function () {
+            console.log(arr);
+        })
+
+    </script>
 </body>
 </html>
