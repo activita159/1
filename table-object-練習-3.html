@@ -41,7 +41,6 @@
         var submitBtn = document.querySelector('.submit');
         var searchBtn = document.querySelector('.search');
         var tbody = document.querySelector('tbody');
-        // var deleteBtns = document.querySelectorAll('.delete');
         var arr =[];
         submitBtn.addEventListener('click',function () {
             arr.push({'name':nameData.value,'age':ageData.value,'gender':genderData.value});
@@ -57,13 +56,12 @@
                         <td>${value["gender"]}</td>
                         <td><button class="delete" delete-index="${index}">delete</button></td>                       
                     </tr>`;
-                gogo();
             })
+            gogo();
         }
         function gogo() {
-            var deleteBtns = document.querySelectorAll('.delete');
+            var deleteBtns = document.querySelectorAll('.delete')
             deleteBtns.forEach(function (deleteB) {
-                console.log(deleteB);//  ????????????????????????
                 deleteB.addEventListener('click',function () {
                     var index = this.getAttribute('delete-index');
                     arr.splice(index,1);
