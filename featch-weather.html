@@ -7,15 +7,54 @@
     <title>Document</title>
 </head>
 <body>
+    
     <script>
         fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE')
         .then(function (response) {
-            return response.text();
+            return response.json();
         })
         .then(function (result) {
-            var data = JSON.parse(result);
-            console.log(data);
+            var data = result["records"]["location"];
+            
+            // document.write(data);
+            var arrLocations = [];
+            data.forEach(function (item) {
+                // console.log(item);
+                arrLocations.push(item["locationName"]);
+                
+                // console.log(item["locationName"]);
+                // console.log(item["weatherElement"][0]["time"][0]);
+            });
+            // console.log(arrLocations);
+            // data = Object.entries(data);
+            // console.log(data[2]);
+            // getWeatherData(data, "嘉義縣", "Wx", 1);
+            arrLocations.forEach(city => {
+                // getWeatherData(data, city, "Wx", 1);
+                // getWeatherData(data, city, "CI", 1);
+                // getWeatherData(data, city, "MaxT", 1);
+                // getWeatherData(data, city, "MinT", 1);
+                var pop = getWeatherData(data, city, "PoP", 1);
+                console.log(pop["time"][0]["parameter"]["parameterName"]);
+
+            })
         })
+
+        // function test(element) {
+        //     return element["elementName"] === "Wx";
+        // }
+
+        function getWeatherData(arrData, strLocation, strType, intPeriod) {
+            const r = arrData.find(locationWeather => locationWeather["locationName"] === strLocation);
+            // console.log(r);
+            const d = r["weatherElement"].find(element => element["elementName"] === strType);
+            // const d = r["weatherElement"].find(function(e){
+            //     return e["elementName"] === strType;
+            // });
+            // console.log(d);
+            return d;
+
+        }
     </script>
 </body>
 </html>
