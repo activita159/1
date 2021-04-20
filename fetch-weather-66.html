@@ -47,34 +47,53 @@
         .then(function (result) {
             var locations = result['records']['location'];  
 
-            var arr = [];            
-            locations.forEach(item => 
-            {
-                arr.push(item);
-            });
-            var locationNames = [];
-            var wxs = [];
-            var pops = [];
-            var mints = [];
-            var maxts = [];
-            var cis = [];
-            arr.forEach(function (city) {
-                locationNames.push(city['locationName']);
-                wxs.push(city['weatherElement'][0]['time'][0]['parameter']['parameterName']);
-                pops.push(city['weatherElement'][1]['time'][0]['parameter']['parameterName']);
-                mints.push(city['weatherElement'][2]['time'][0]['parameter']['parameterName']);
-                maxts.push(city['weatherElement'][4]['time'][0]['parameter']['parameterName']);
-                cis.push(city['weatherElement'][3]['time'][0]['parameter']['parameterName']);
-            })
-            console.log(locationNames);           
-            console.log(wxs);
-            console.log(pops);
-            console.log(mints);
-            console.log(maxts);
-            console.log(cis);
+            // var locationNames = [];
+            var arrType = ["氣象預報", "降雨機率", "最低溫", "舒適度", "最高溫"];
+            // var wxs = [];
+            // var pops = [];
+            // var mints = [];
+            // var maxts = [];
+            // var cis = [];
+            // locations.forEach(function (city) {
+            //     locationNames.push(city['locationName']);
+            //     wxs.push(city['weatherElement'][0]['time'][0]['parameter']['parameterName']);
+            //     pops.push(city['weatherElement'][1]['time'][0]['parameter']['parameterName']);
+            //     mints.push(city['weatherElement'][2]['time'][0]['parameter']['parameterName']);
+            //     maxts.push(city['weatherElement'][4]['time'][0]['parameter']['parameterName']);
+            //     cis.push(city['weatherElement'][3]['time'][0]['parameter']['parameterName']);
+            // })
             
-            for(var i = 0 ; i < locationNames.length ;i++){
-                all.innerHTML += '<div class="card"></div>'
+            console.log(getData(locations, arrType));
+
+            // console.log(locationNames);           
+            // console.log(wxs);
+            // console.log(pops);
+            // console.log(mints);
+            // console.log(maxts);
+            // console.log(cis);
+            
+            // for(var i = 0 ; i < locationNames.length ;i++){
+            //     all.innerHTML += '<div class="card"></div>'
+            // }
+
+            var a = {};
+            a["name"] = {"b" : 12};
+            console.log(a);
+
+            function getData(arrCity, arrType) {
+                var obj = {};
+                arrCity.forEach((city, cIndex) => {
+                    var c = city["locationName"];
+                    // console.log(c);
+                    obj[c] = {};
+                    arrType.forEach((data, dIndex) => {
+                        // console.log(city['weatherElement'][index]['time'][0]['parameter']['parameterName']);
+                        obj[c][data] = city['weatherElement'][dIndex]['time'][0]['parameter']['parameterName']
+
+                    }) 
+                })
+
+                return obj;
             }
         })
     </script>
