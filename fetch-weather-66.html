@@ -41,43 +41,14 @@
 
         var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
         fetch(url)
-        .then(function (response) {
-            return response.json();
+        .then(function (response){  
+            return response.json();            
         })
         .then(function (result) {
-            var locations = result['records']['location'];  
-
-            // var locationNames = [];
-            var arrType = ["氣象預報", "降雨機率", "最低溫", "舒適度", "最高溫"];
-                    
-            var data = getData(locations, arrType);
-
-            
-            // for(var i = 0 ; i < locations.length ;i++){
-            //     all.innerHTML += '<div class="card"></div>'
-            // }
-
-            // var a = {};
-            // a["name"] = {"b" : 12};
-            // console.log(a);
-
-            function getData(arrCity, arrType) {
-                var obj = {};
-                arrCity.forEach((city, cIndex) => {
-                    console.log(city);
-                    var c = city["locationName"];
-                    // console.log(c);
-                    obj[c] = {};
-                    // obj[c]["氣象預報"] = city['weatherElement'][0]['time'][0]['parameter']['parameterName'];
-                    arrType.forEach((data, dIndex) => {
-                        // console.log(city['weatherElement'][index]['time'][0]['parameter']['parameterName']);
-                        obj[c][data] = city['weatherElement'][dIndex]['time'][0]['parameter']['parameterName']
-                    })
-
-                })
-                // console.log(obj);
-                return obj;
-            }
+            var all = result['records']['location'];
+            all.forEach(function (locationName) {
+                
+            });
         })
     </script>
 </body>

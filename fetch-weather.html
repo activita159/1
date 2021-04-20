@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body>   
     <script>
        var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
        fetch(url)
@@ -17,21 +16,21 @@
        .then(function (result) {
             var all = result['records']['location'];
             var arr =["氣象預報", "降雨機率", "最低溫", "舒適度", "最高溫"];
-            
+                       
             var data = getData(all , arr);
-            
+            console.log(data);
+           
             function getData(all , arr) {
                 var obj = {};
                 all.forEach(function(location) {
                     var ln = location['locationName'];
-                    obj[ln] ={};  
+                    console.log(ln);
+                    obj[ln] = {};  
                     arr.forEach(function(value , index){
                         obj[ln][value] = location["weatherElement"][index]['time'][0]['parameter']['parameterName']
-                        console.log(location["weatherElement"][index]['time'][0]['parameter']['parameterName']);
-                    }); 
-                    
-                                    
+                    });                               
                 });
+                return obj;
             }
        })
     </script>
