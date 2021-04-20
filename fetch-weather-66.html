@@ -49,50 +49,33 @@
 
             // var locationNames = [];
             var arrType = ["氣象預報", "降雨機率", "最低溫", "舒適度", "最高溫"];
-            // var wxs = [];
-            // var pops = [];
-            // var mints = [];
-            // var maxts = [];
-            // var cis = [];
-            // locations.forEach(function (city) {
-            //     locationNames.push(city['locationName']);
-            //     wxs.push(city['weatherElement'][0]['time'][0]['parameter']['parameterName']);
-            //     pops.push(city['weatherElement'][1]['time'][0]['parameter']['parameterName']);
-            //     mints.push(city['weatherElement'][2]['time'][0]['parameter']['parameterName']);
-            //     maxts.push(city['weatherElement'][4]['time'][0]['parameter']['parameterName']);
-            //     cis.push(city['weatherElement'][3]['time'][0]['parameter']['parameterName']);
-            // })
-            
-            console.log(getData(locations, arrType));
+                    
+            var data = getData(locations, arrType);
 
-            // console.log(locationNames);           
-            // console.log(wxs);
-            // console.log(pops);
-            // console.log(mints);
-            // console.log(maxts);
-            // console.log(cis);
             
-            // for(var i = 0 ; i < locationNames.length ;i++){
-            //     all.innerHTML += '<div class="card"></div>'
-            // }
+            for(var i = 0 ; i < locations.length ;i++){
+                all.innerHTML += '<div class="card"></div>'
+            }
 
-            var a = {};
-            a["name"] = {"b" : 12};
-            console.log(a);
+            // var a = {};
+            // a["name"] = {"b" : 12};
+            // console.log(a);
 
             function getData(arrCity, arrType) {
                 var obj = {};
                 arrCity.forEach((city, cIndex) => {
+                    console.log(city);
                     var c = city["locationName"];
                     // console.log(c);
                     obj[c] = {};
+                    // obj[c]["氣象預報"] = city['weatherElement'][0]['time'][0]['parameter']['parameterName'];
                     arrType.forEach((data, dIndex) => {
                         // console.log(city['weatherElement'][index]['time'][0]['parameter']['parameterName']);
                         obj[c][data] = city['weatherElement'][dIndex]['time'][0]['parameter']['parameterName']
+                    })
 
-                    }) 
                 })
-
+                // console.log(obj);
                 return obj;
             }
         })

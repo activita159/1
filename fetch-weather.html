@@ -9,39 +9,26 @@
 <body>
     
     <script>
-        var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
-        fetch(url)
-        .then(function (response) 
-        {
+       var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
+       fetch(url)
+       .then(function (response) {
             return response.json();
-        })
-        .then(function (result) 
-        {
-            var data = result["records"]["location"];
-            var arrLocations = [];
-            data.forEach(function (item) 
-            {
-                arrLocations.push(item["locationName"]);                
-            });
+       })
+       .then(function (result) {
+            var all = result['records']['location'];
+            var arr =["氣象預報", "降雨機率", "最低溫", "舒適度", "最高溫"];
             
-            arrLocations.forEach(city => 
-            {
-                // console.log(city);
-                // getWeatherData(data, city, "Wx", 1);
-                // getWeatherData(data, city, "CI", 1);
-                // getWeatherData(data, city, "MaxT", 1);
-                // getWeatherData(data, city, "MinT", 1);
-                var pop = getWeatherData(data, city, "PoP", 1);
-                console.log(pop["time"][0]["parameter"]["parameterName"]);
-            })
-        })
-        function getWeatherData(arrData, strLocation, strType, intPeriod) 
-        {
-            var r = arrData.find(locationWeather => locationWeather["locationName"] === strLocation);
-            console.log(r)
-            var d = r["weatherElement"].find(element => element["elementName"] === strType);
-            return d;
-        }
+            var data = getData(all , arr);
+
+            var obj = {};
+            function getData(all , arr) {
+                all.forEach(function(location) {
+                    var ln = location['locationName'];
+                    obj[ln] ={};
+                    
+                });
+            }
+       })
     </script>
 </body>
 </html>
