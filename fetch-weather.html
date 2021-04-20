@@ -19,13 +19,18 @@
             var arr =["氣象預報", "降雨機率", "最低溫", "舒適度", "最高溫"];
             
             var data = getData(all , arr);
-
-            var obj = {};
+            
             function getData(all , arr) {
+                var obj = {};
                 all.forEach(function(location) {
                     var ln = location['locationName'];
-                    obj[ln] ={};
+                    obj[ln] ={};  
+                    arr.forEach(function(value , index){
+                        obj[ln][value] = location["weatherElement"][index]['time'][0]['parameter']['parameterName']
+                        console.log(location["weatherElement"][index]['time'][0]['parameter']['parameterName']);
+                    }); 
                     
+                                    
                 });
             }
        })
