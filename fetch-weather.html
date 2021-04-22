@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            background-color: blanchedalmond;
+        }
+        .all{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px 250px 0 250px;
+        }
+        .card{
+            width: 350px;
+            height: 500px;
+            background-color: rgb(255, 255, 255);
+            border: 10px solid rgb(0, 156, 184);
+            border-radius: 10px;
+            margin: 0px 10px 20px 10px
+        }
+    </style>
 </head>
-<body>   
+<body> 
+    <div class = 'all'>
+
+    </div>
+    
     <script>
        var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
        fetch(url)
