@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
-        body{
+
+        body {
             padding: 0;
             margin: 0;
             width: 100%;
             background-color: blanchedalmond;
         }
-        .all{
+
+        .all {
+            margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px 250px 0 250px;
+            /* justify-content: center; */
+            
         }
-        .card{
+
+        .card {
+            
             width: 350px;
             height: 500px;
             background-color: rgb(255, 255, 255);
@@ -29,39 +35,117 @@
             border-radius: 10px;
             margin: 0px 10px 20px 10px
         }
+        /* .img{
+            width: 100%;
+            height: 300px;
+        } */
+        table{
+            width: 100%;
+        }
+        td{
+            text-align: center;
+            border-bottom: 1px solid rgb(255, 108, 108);
+        }
+
+        
+        
     </style>
 </head>
-<body> 
-    <div class = 'all'>
+
+<body>
+    <div class='all'>
 
     </div>
-    
+
     <script>
-       var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
-       fetch(url)
-       .then(function (response) {
-            return response.json();
-       })
-       .then(function (result) {
-            var all = result['records']['location'];
-            var arr =["氣象預報", "降雨機率", "最低溫", "舒適度", "最高溫"];
-                       
-            var data = getData(all , arr);
-            console.log(data);
-           
-            function getData(all , arr) {
-                var obj = {};
-                all.forEach(function(location) {
-                    var ln = location['locationName'];
-                    console.log(ln);
-                    obj[ln] = {};  
-                    arr.forEach(function(value , index){
-                        obj[ln][value] = location["weatherElement"][index]['time'][0]['parameter']['parameterName']
-                    });                               
-                });
-                return obj;
-            }
-       })
+        var allll = document.querySelector('.all');
+        var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
+        fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (result) {
+                var all = result['records']['location'];
+                var arr = ["氣象預報", "降雨機率", "最低溫", "舒適度", "最高溫"];
+
+                var data = getData(all, arr);
+                console.log(data);
+                
+                    
+                
+
+                function getData(all, arr) {
+                    var obj = {};
+                    all.forEach(function (location) {
+                        var ln = location['locationName'];
+
+                        obj[ln] = {};
+                        arr.forEach(function (value, index) {
+                            obj[ln][value] = location["weatherElement"][index]['time'][0]['parameter']['parameterName']
+                        });
+                    });
+                    return obj;
+                };
+                var arrData = Object.entries(data);
+                console.log(arrData);
+                arrData.forEach((item, index) => {                  
+                        allll.innerHTML +=`
+                        <div class="card">
+                            <h1>${item[0]}</h1>
+                            <div class="img"></div>
+                            <table>
+                                <tr>                                   
+                                    <td>
+                                        氣象預報:
+                                    </td>
+                                    <td>
+                                        ${item[1]['氣象預報']}
+                                    </td>
+                                </tr>                               
+                                <tr>
+                                    <td>
+                                        降雨機率:
+                                    </td>
+                                    <td>
+                                        ${item[1]['降雨機率']} %
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        最低溫:
+                                    </td>
+                                    <td>
+                                        ${item[1]['最低溫']} 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        舒適度:
+                                    </td>
+                                    <td>
+                                        ${item[1]['舒適度']} 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        最高溫:
+                                    </td>
+                                    <td>
+                                        ${item[1]['最高溫']} 
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>`;
+                        if(item[1]['氣象預報'].search("雨") > -1){
+                            console.log(1);
+                        }
+                        else if(item[1]['氣象預報'].search("雲") > -1){
+                            console.log(item[1]['氣象預報']);
+                        }
+                    })
+
+            })
     </script>
 </body>
+
 </html>
