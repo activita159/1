@@ -41,14 +41,25 @@
 
         var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
         fetch(url)
-        .then(function (response){  
-            return response.json();            
+        .then(function (response) {
+            return response.json();
         })
         .then(function (result) {
             var all = result['records']['location'];
-            all.forEach(function (locationName) {
+            var arr = ["天氣概況","降雨機率", "最低溫", "舒適度", "最高溫"];
+
+            
+            all.forEach(function (value){
+                var location = value['locationName'];
+                
                 
             });
+            
+            
+            
+            
+            
+
         })
     </script>
 </body>

@@ -22,7 +22,7 @@
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
-            /* justify-content: center; */
+            justify-content: center;
             
         }
 
@@ -70,9 +70,6 @@
 
                 var data = getData(all, arr);
                 console.log(data);
-                
-                    
-                
 
                 function getData(all, arr) {
                     var obj = {};
@@ -141,6 +138,9 @@
                         }
                         else if(item[1]['氣象預報'].search("雲") > -1){
                             console.log(item[1]['氣象預報']);
+                        }
+                        else{
+
                         }
                     })
 
