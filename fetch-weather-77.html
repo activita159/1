@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        var url ='https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE'
+        fetch(url)
+        .then(function (response) {
+            return response.json();           
+        })
+        .then(function (result) {
+            var arr = ["天氣概況","降雨機率", "最低溫", "舒適度", "最高溫"];
+            var all = result['records']['location'];
+            var obj = {};
+            var detailData = [];
+            all.forEach(function (value, index) {
+                // [['嘉義縣',{'概況':"晴","降雨機率":"20"}],'新北市']
+                var location = value['locationName'];
+                var data = value["weatherElement"];
+                data.forEach(function (valuee, indexx) {
+                    var hhh = arr[indexx];
+                    obj[hhh] = valuee['time'][0]["parameter"]["parameterName"];                    
+                });                   
+                detailData.push([location,obj]);
+            });
+            console.log(detailData);
+        })
+        
+
+        
+    </script>
+</body>
+
+</html>

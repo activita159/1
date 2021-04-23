@@ -47,13 +47,26 @@
         .then(function (result) {
             var all = result['records']['location'];
             var arr = ["天氣概況","降雨機率", "最低溫", "舒適度", "最高溫"];
-
-            
-            all.forEach(function (value){
+            var k = [];           
+            all.forEach(function (value,index){
                 var location = value['locationName'];
+                var data = value['weatherElement'];
+                var bj = {};
+                data.forEach(function (valueA, indexA) {
+                    console.log(valueA);
+                    var hj = arr[indexA];
+                    
+                    bj[hj] = valueA['time'][0]['parameter']['parameterName'];
+                })
                 
+                // console.log(data);
+                // [['嘉義縣',{'概況':"晴","降雨機率":"20"}],'新北市']
+                k.push([location, bj]);
+                //[['name',{}],[],[]]
                 
             });
+            console.log(k);
+            
             
             
             
