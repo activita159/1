@@ -79,6 +79,7 @@
                         obj[ln] = {};
                         arr.forEach(function (value, index) {
                             obj[ln][value] = location["weatherElement"][index]['time'][0]['parameter']['parameterName']
+                            console.log(obj);
                         });
                     });
                     return obj;

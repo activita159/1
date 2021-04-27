@@ -51,8 +51,7 @@
 
     <script>
         var allll = document.querySelector('.all');
-        var url =
-            'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
+        var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0A4CBC4-6678-4E9A-8461-C327C5D6AAFE';
         fetch(url)
             .then(function (response) {
                 return response.json();
@@ -66,64 +65,65 @@
                 all.forEach(function (value, index) {
                     var location = value['locationName'];
                     var data = value["weatherElement"];
+                    // console.log(data);
                     data.forEach(function (valuee, indexx) {
-                        // console.log(valuee);
-                        var hhh = arr[indexx];
-                        obj[hhh] = valuee['time'][0]["parameter"]["parameterName"];
-
+                        // console.log(valuee)                        
+                        var hhh = arr[indexx];                       
+                        obj[hhh] = valuee['time'][0]["parameter"]["parameterName"];                        
+                        console.log(obj);//這裡怪怪der
                     });
-                    detailData.push([location, obj]);
-                    // console.log(detailData);
+                    detailData.push([location,obj]); 
                 });
-                console.log(detailData);
+                
+
                 detailData.forEach(function (item, index) {
-                    allll.innerHTML += `
-                        <div class="card">
-                            <h1>${item[0]}</h1>
-                            <div class="img"></div>
-                            <table>
-                                <tr>                                   
-                                    <td>
-                                        氣象概況:
-                                    </td>
-                                    <td>
-                                        ${item[1]['氣象概況']}
-                                    </td>
-                                </tr>                               
-                                <tr>
-                                    <td>
-                                        降雨機率:
-                                    </td>
-                                    <td>
-                                        ${item[1]['降雨機率']} %
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        最低溫:
-                                    </td>
-                                    <td>
-                                        ${item[1]['最低溫']} 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        舒適度:
-                                    </td>
-                                    <td>
-                                        ${item[1]['舒適度']} 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        最高溫:
-                                    </td>
-                                    <td>
-                                        ${item[1]['最高溫']} 
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>`;
+                    // allll.innerHTML += `
+                    //     <div class="card">
+                    //         <h1>${item[0]}</h1>
+                    //         <div class="img"></div>
+                    //         <table>
+                    //             <tr>                                   
+                    //                 <td>
+                    //                     氣象概況:
+                    //                 </td>
+                    //                 <td>
+                    //                     ${item[1]['氣象概況']}
+                    //                 </td>
+                    //             </tr>                               
+                    //             <tr>
+                    //                 <td>
+                    //                     降雨機率:
+                    //                 </td>
+                    //                 <td>
+                    //                     ${item[1]['降雨機率']} %
+                    //                 </td>
+                    //             </tr>
+                    //             <tr>
+                    //                 <td>
+                    //                     最低溫:
+                    //                 </td>
+                    //                 <td>
+                    //                     ${item[1]['最低溫']} 
+                    //                 </td>
+                    //             </tr>
+                    //             <tr>
+                    //                 <td>
+                    //                     舒適度:
+                    //                 </td>
+                    //                 <td>
+                    //                     ${item[1]['舒適度']} 
+                    //                 </td>
+                    //             </tr>
+                    //             <tr>
+                    //                 <td>
+                    //                     最高溫:
+                    //                 </td>
+                    //                 <td>
+                    //                     ${item[1]['最高溫']} 
+                    //                 </td>
+                    //             </tr>
+                    //         </table>
+                    //     </div>`;
                         // if(item[1]['氣象概況'].search("雨") > -1){
                         //     console.log(1);
                         // }
