@@ -16,12 +16,13 @@
             padding: 0;
             margin: 0;
         }
+
         .all {
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            
+
         }
 
         .card {
@@ -56,83 +57,100 @@
             .then(function (response) {
                 return response.json();
             })
+
             //[['嘉義市',{'wx':'晴時多雲','PoP':"10"}],[新北市,{'wx':'晴時多雲','PoP':"10"}]]
             .then(function (result) {
                 var all = result["records"]["location"];
                 var detailData = [];
-                var obj = {};
                 var arr = ['氣象概況', '降雨機率', '最低溫', '舒適度', '最高溫'];
                 all.forEach(function (value, index) {
                     var location = value['locationName'];
                     var data = value["weatherElement"];
+                    var obj = {};
                     // console.log(data);
                     data.forEach(function (valuee, indexx) {
-                        // console.log(valuee)                        
-                        var hhh = arr[indexx];                       
-                        obj[hhh] = valuee['time'][0]["parameter"]["parameterName"];                        
-                        console.log(obj);//這裡怪怪der
+                        // console.log(valuee);
+                        var hhh = arr[indexx];
+                        // console.log(hhh)
+                        // console.log(valuee['time'][0]["parameter"]["parameterName"]) 
+                        obj[hhh] = valuee['time'][0]["parameter"]["parameterName"];
+                        // console.log(obj[hhh]);
+
                     });
-                    detailData.push([location,obj]); 
+                    // console.log(obj)
+                    detailData.push([location, obj]);
                 });
-                
+                console.log(detailData)
+
 
                 detailData.forEach(function (item, index) {
-                    // allll.innerHTML += `
-                    //     <div class="card">
-                    //         <h1>${item[0]}</h1>
-                    //         <div class="img"></div>
-                    //         <table>
-                    //             <tr>                                   
-                    //                 <td>
-                    //                     氣象概況:
-                    //                 </td>
-                    //                 <td>
-                    //                     ${item[1]['氣象概況']}
-                    //                 </td>
-                    //             </tr>                               
-                    //             <tr>
-                    //                 <td>
-                    //                     降雨機率:
-                    //                 </td>
-                    //                 <td>
-                    //                     ${item[1]['降雨機率']} %
-                    //                 </td>
-                    //             </tr>
-                    //             <tr>
-                    //                 <td>
-                    //                     最低溫:
-                    //                 </td>
-                    //                 <td>
-                    //                     ${item[1]['最低溫']} 
-                    //                 </td>
-                    //             </tr>
-                    //             <tr>
-                    //                 <td>
-                    //                     舒適度:
-                    //                 </td>
-                    //                 <td>
-                    //                     ${item[1]['舒適度']} 
-                    //                 </td>
-                    //             </tr>
-                    //             <tr>
-                    //                 <td>
-                    //                     最高溫:
-                    //                 </td>
-                    //                 <td>
-                    //                     ${item[1]['最高溫']} 
-                    //                 </td>
-                    //             </tr>
-                    //         </table>
-                    //     </div>`;
-                        // if(item[1]['氣象概況'].search("雨") > -1){
-                        //     console.log(1);
-                        // }
-                        // else if(item[1]['氣象概況'].search("雲") > -1){
-                        //     console.log(item[1]['氣象概況']);
-                        // }
-                        // else{
+                    if (item[1]['氣象概況'].search("雨") > -1) {
+                        var weiBro = `<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <g class="layer">
+  <title>Layer 1</title>
+  <circle cx="23.09659" cy="24.05114" fill="#FF0000" id="svg_1" r="17" stroke="#000000" stroke-width="5"/>
+ </g>
+</svg>`
+                    }
+                    else if (item[1]['氣象概況'].search("雲") > -1) {
+                        console.log(item[1]['氣象概況']);
+                    }
+                    else if (item[1]['氣象概況'].search("晴") > -1) {
+                        console.log(item[1]['氣象概況']);
+                    }
+                    else {
 
-                        // }
+                    }
+                    allll.innerHTML += `
+                        <div class="card">
+                            <h1>${item[0]}</h1>
+                            
+                            <table>
+                                <tr>                                   
+                                    <td>
+                                        氣象概況:
+                                    </td>
+                                    <td>
+                                        ${item[1]['氣象概況']}
+                                    </td>
+                                </tr>                               
+                                <tr>
+                                    <td>
+                                        降雨機率:
+                                    </td>
+                                    <td>
+                                        ${item[1]['降雨機率']} %
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        最低溫:
+                                    </td>
+                                    <td>
+                                        ${item[1]['最低溫']} 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        舒適度:
+                                    </td>
+                                    <td>
+                                        ${item[1]['舒適度']} 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        最高溫:
+                                    </td>
+                                    <td>
+                                        ${item[1]['最高溫']} 
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="img" style ="width:50px;height:50px">${weiBro}</div>
+                        </div>`;
+
                 });
             })
     </script>

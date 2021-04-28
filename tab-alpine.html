@@ -27,17 +27,17 @@
         } */
     </style>
 </head>
-<body x-data="{ open: 'btn2' }">
+<body x-data="{open: 'btn1'}">
         <div x-text="'目前選到的:'+open"></div>
         <div>目前選到的區塊: <span x-text="open">btn1</span></div>
 
         <button class="btn" @click="open='btn1'">按鈕1</button>
         <button class="btn" @click="open='btn2'">按鈕2</button>
         <button class="btn" @click="open='btn3'">按鈕3</button>
-    
-        <div id="box1" class="box" x-show="open == 'btn1'">區塊一</div>
-        <div id="box2" class="box" x-show="open == 'btn2'">區塊二</div>
-        <div id="box3" class="box" x-show="open == 'btn3'">區塊三</div>
+
+        <div id="box1" class="box" x-show.transition.in.transition.duration.1200ms="open == 'btn1'">區塊一</div>
+        <div id="box2" class="box" x-show.transition.in.transition.duration.1200ms="open == 'btn2'">區塊二</div>
+        <div id="box3" class="box" x-show.transition.in.transition.duration.1200ms="open == 'btn3'">區塊三</div>
 
 
     <!-- ------------------------- -->
@@ -49,8 +49,12 @@
     <div x-show="tab === 'foo'">Tab Foo</div>
     <div x-show="tab === 'bar'">Tab Bar</div>
     </div> -->
-
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>  
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> 
+    <!-- <script>
+        function fcuk() {
+            return {open: 'btn1'}
+        }
+    </script>  -->
 
 </body>
 </html>
