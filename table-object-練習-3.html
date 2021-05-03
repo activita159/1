@@ -56,9 +56,9 @@
             arr.forEach(function (value, index) {
                 tbody.innerHTML +=
                     `<tr>
-                    <td>${nameData.value}</td>
-                    <td>${ageData.value}</td>
-                    <td>${genderData.value}</td>
+                    <td>${value['name']}</td>
+                    <td>${value['age']}</td>
+                    <td>${value['gender']}</td>
                     <td><button class="delete" delete-index="${index}">delete</button></td>
                 </tr>`;
             })
