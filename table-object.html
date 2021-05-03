@@ -61,13 +61,13 @@
                         <td>${data["gender"]}</td>
                         <td><button class="delete" data-index="${index}">delete</button></td>
                     </tr>` ;                              
-                }) 
+            }) 
             go();         
         }       
         function go() {
             var deleteBtns = document.querySelectorAll('.delete');
             deleteBtns.forEach(function (deleteBtn) {
-                console.log(deleteBtn);
+                // console.log(deleteBtn);
                 deleteBtn.addEventListener("click",function () {                    
                     var index = this.getAttribute("data-index");
                     arr.splice(index,1);
